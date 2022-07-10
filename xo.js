@@ -36,8 +36,9 @@ function win(element){
         element.disabled = true
         playerNow = playerTwo.value;
     }
-
+    //
     text.innerHTML = "Current Player : " + playerNow
+    //checking if all inputs are X or O in the same row
     for(let i=0;i<3;i++){
         let row =0
         while(row<3 && grid[i][row].value==currentPlayer){
@@ -48,6 +49,7 @@ function win(element){
             }
         }
     }
+    //checking if all inputs are X or O in the same column
     for(let j=0;j<3;j++){
         let column = 0 
             while(column<3 && grid[column][j].value==currentPlayer){
@@ -58,6 +60,7 @@ function win(element){
                }  
            }
     }
+    //checking if all inputs are X or O in the same DESCENDING diagonal 
     let diagonal=0
     while(diagonal<3 && grid[diagonal][diagonal].value==currentPlayer){
         diagonal++
@@ -66,6 +69,7 @@ function win(element){
             setTimeout(()=>{alert(playerNow + " won!")},300);
         }
     }
+    //checking if all inputs are X or O in the same ASCENDING diagonal
     let diagonalTwo = 3
     while(diagonalTwo<9 && document.getElementById('b'+diagonalTwo).value==currentPlayer){
         diagonalTwo+=2
@@ -74,9 +78,9 @@ function win(element){
             setTimeout(()=>{alert(playerNow + " won!")},300);
         }
     }
-    for(let dis = 1; dis<=9 &&document.getElementById('b'+dis).disabled ; dis++){
-        console.log(dis);
-        if(dis==9){
+    //checking if all the buttons are pressed (draw condition)
+    for(let draw = 1; draw<=9 &&document.getElementById('b'+draw).disabled ; draw++){
+        if(draw==9){
             setTimeout(()=>{alert("Draw between " + playerOne.value + " and " + playerTwo.value)},300)
         }
     }
