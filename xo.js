@@ -79,8 +79,8 @@ function win(element){
         }
     }
     //checking if all the buttons are pressed (draw condition)
-    for(let draw = 1; draw<=9 &&document.getElementById('b'+draw).disabled ; draw++){
-        if(draw==9){
+    for(let draw = 1; draw<=9 && document.getElementById('b'+draw).disabled ; draw++){
+        if(draw==9 && winVar==0){
             setTimeout(()=>{alert("Draw between " + playerOne.value + " and " + playerTwo.value)},300)
         }
     }
