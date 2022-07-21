@@ -13,7 +13,6 @@ for(let nums = 1;nums<=9;nums++){
     let c = 'b' + nums
     c = document.getElementById(c);
 }
-console.log(b1)
 function reset(){
     x = 1
     winVar = 0
@@ -21,6 +20,7 @@ function reset(){
         buttons[i].value=""
         buttons[i].disabled = false
     }
+    playerNow = playerOne.value;
 }
 function win(element){
     x++
@@ -46,6 +46,7 @@ function win(element){
             if(row==3){
                 winVar += 1;
                 setTimeout(()=>{alert(playerNow + " won!")},300)
+                return;
             }
         }
     }
@@ -57,6 +58,7 @@ function win(element){
                if(column==3){
                    winVar += 1;
                    setTimeout(()=>{alert(playerNow + " won!")},300);
+                   return;
                }  
            }
     }
@@ -67,6 +69,7 @@ function win(element){
         if(diagonal==3){
             winVar += 1;
             setTimeout(()=>{alert(playerNow + " won!")},300);
+            return;
         }
     }
     //checking if all inputs are X or O in the same ASCENDING diagonal
@@ -76,6 +79,7 @@ function win(element){
         if(diagonalTwo==9){
             winVar += 1;
             setTimeout(()=>{alert(playerNow + " won!")},300);
+            return;
         }
     }
     //checking if all the buttons are pressed (draw condition)
